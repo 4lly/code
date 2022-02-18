@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+</head>
+<body>
+  <h2 class="counter">0</h2>
+  <button  class="increment">+1</button>
+  <button  class="decrement">-1</button>
+</body>
+<script>
+  // 1.获取所有的元素
+  const countEl = document.querySelector('.counter');
+  const incrementEl = document.querySelector('.increment');
+  const decrementEl = document.querySelector('.decrement');
+  // 定义变量用来存取count
+  let count = 0;
+  incrementEl.onclick = function() {
+    ++count;
+    countEl.innerHTML = count;
+  }
+  decrementEl.onclick = function() {
+    --count;
+    countEl.innerHTML = count;
+  }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<!-- vue2 template模板中只能有一个根元素 -->
+<!-- vue3 template模板中可以有多个根元素 -->
+<template id="my-app">
+  <!-- 1.v-bind的基本使用 -->
+  <img v-bind:src="src" alt="">
+  <a v-bind:href="href">百度一下</a>
+  <!-- 2.v-bind的语法糖 -->
+  <img :src="src" alt="">
+  <a :href="href">百度一下</a>
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        src:"https://avatars.githubusercontent.com/u/10335230?s=60&v=4",
+        href:"https://www.baidu.com"
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

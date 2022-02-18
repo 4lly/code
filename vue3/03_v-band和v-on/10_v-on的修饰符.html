@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    .area{
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    
+  </div>
+  
+</body>
+<template id="my-app">
+  <p>{{counter}}</p>
+  <!-- stop:组织冒泡 == event.preventDefault();-->
+  <div @click.prevent="divClick">
+    <!-- stop:组织冒泡 == event.stopPropagation();-->
+    <button @click.stop="btnClick">button</button>
+  </div>
+  <input type="text" @keyup.enter="enterKeyUp">
+  
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        counter:100
+      }
+    },
+    methods: {
+      divClick(event) {        
+        console.log('div Click');
+      },
+      btnClick(event) {
+        console.log('btn Click');
+      },
+      enterKeyUp(e) {
+        console.log('keyUp',e.target.value);
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    .active{
+      color: red;
+    }
+    .text_line{
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<template id="my-app">
+  <!-- 1.普通绑定 -->
+  <div :class="className">哈哈哈</div>
+  <!-- 2.对象语法  {'active':boolean}-->
+  <div :class="{'active':isActive,text_line:isActive}">哈哈哈</div>
+  <button @click="toggle">切换</button>
+  <!-- 默认class和动态class结合 -->
+  <div class="show" :class="{'active':isActive,text_line:isActive}">hello world</div>
+  <!-- 将对象放到一个单独的属性中 -->
+  <div class="aaa" :class="classObj">呵呵呵</div>
+  <!-- 将对象放到一个methods（computed）中 -->
+  <div class="aaa" :class="getClassObj()">呵呵呵4</div>
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        className: "active",
+        isActive: true,
+        classObj: {
+          active: true,
+          'text_line': true
+        }
+      }
+    },
+    methods: {
+      toggle() {
+        this.isActive = !this.isActive
+      },
+      getClassObj() {
+        return {
+          active: true,
+          'text_line': true
+        }
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

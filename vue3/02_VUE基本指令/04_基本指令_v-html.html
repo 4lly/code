@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<template id="my-app">
+  <h2>{{message}}</h2>
+  <!-- 默认情况下，如果我们展示的内容本身是 html 的，那么vue并不会对其进行特殊的解析。 -->
+  <!-- 如果我们希望这个内容被Vue可以解析出来，那么可以使用 v-html 来展示； -->
+  <div v-html="message">
+  </div>
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        message:"<span style='color:red;'>hello world</span>",
+        counter:100
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

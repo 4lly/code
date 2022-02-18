@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<template id="my-app">
+  <!-- 这个指令保持在元素上直到关联组件实例结束编译。 -->
+  <!-- 和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到组件实
+例准备完毕。 -->
+  <!-- <div> 不会显示，直到编译结束。 -->
+  <div v-cloak>{{message}}</div>  
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        message:"hello world"
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

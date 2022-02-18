@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="./js/vue3.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script type="x-template" id="main">
+  <div>
+    <h6 class="counter">{{count}}</h6>
+    <button  class="increment" @click="increment">+1</button>
+    <button  class="decrement"  @click="decrement">-1</button>
+  </div>
+</script>
+<script>
+  // 相当于执行 document.querySelector("#main");并且使用匹配元素的innerHTML作为字符串模板;
+  const app = Vue.createApp({
+    template:"#main",
+    data() {
+      return {
+        count:0
+      }
+    },
+    methods: {
+      /**
+       * 注意 不能使用箭头函数
+       * 1.箭头函数绑定了父级作用域的上下文，所以this将不会按照期望指向组件实例
+       * */
+      increment() {
+        ++this.count
+      },
+      decrement() {
+        --this.count
+      }
+
+    }
+  });
+  app.mount("#app");
+</script>
+</html>

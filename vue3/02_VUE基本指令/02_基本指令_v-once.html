@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<template id="my-app">
+  <h2>{{message}}</h2>
+  <!-- 用于指定元素或者组件只渲染一次 -->
+  <!-- 当数据发生变化时，元素或者组件以及其所有的子元素将视为静态内容并且跳过；-->
+  <!-- 该指令可以用于性能优化； -->
+  <div v-once>
+    <h2>{{message}}</h2>
+    <h2>{{counter}}</h2>
+  </div>
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        message:"hello world",
+        counter:100
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

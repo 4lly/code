@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    .active{
+      color: red;
+    }
+    .text_line{
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<template id="my-app">
+  <div v-bind="info">哈哈哈</div>
+  <div :="info">哈哈哈</div>
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+
+        info:{
+          name:'index',
+          age:18,
+          height:188
+        },      
+      }
+    },
+    methods: {
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>

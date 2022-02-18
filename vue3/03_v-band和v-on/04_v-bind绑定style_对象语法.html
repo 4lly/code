@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE3邂逅</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    .active{
+      color: red;
+    }
+    .text_line{
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  
+</body>
+<template id="my-app">
+  <!-- 1.普通使用 -->
+  <div style="color:red;">哈哈哈</div>
+  <!-- 2.对象语法 :style="{cssPropertyName:cssPropertyValue}" -->
+  <div :style="{color:'pink',fontSize:finalFontSize}">哈哈哈</div>
+  <div :style="{color:finalColor,'font-size':finalFontSize}">哈哈哈</div>
+  <div :style="finalStyle">哈哈哈</div>
+  <div :style="getStyleObj()">呵呵呵4</div>
+
+
+</template>
+<script>
+  const App = {
+    template: "#my-app",
+    data() {
+      return {
+        finalColor: "blue",
+        finalFontSize:'30px',
+        finalStyle:{
+          color:'yellow',
+          fontSize:'30px',
+          'background-color':'pink'
+        }
+      }
+    },
+    methods: {
+      getStyleObj() {
+        return {
+          color:'yellow',
+          fontSize:'30px',
+          'background-color':'pink'
+        }
+      }
+    },
+  }
+  const app = Vue.createApp(App);
+  app.mount("#app");
+</script>
+</html>
