@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <ShowMessage :text="text" name="tom"></ShowMessage>
-    <ShowMessage :text="text" :name="name"></ShowMessage>
-    <!-- 此操作会结构赋值 -->
-    <ShowMessage v-bind="message" name="jack"></ShowMessage>
-    <ShowMessage name="jack"></ShowMessage>
-     <ShowMessage style="color:red" name="jack"></ShowMessage>
+    <Child :text="text" name="tom"></Child>
+    <Child :text="text" :name="name"></Child>
+    <!-- 将对象结构给组件 -->
+    <Child v-bind="message" name="jack"></Child>
+    <Child name="jack"></Child>
+    <Child style="color:red" name="jack"></Child>
   </div>
 </template>
 
 <script>
-  import ShowMessage from './ShowMessage.vue';
+  import Child from './Child.vue';
   export default {
     name:'app',
     components:{
-      ShowMessage
+      Child
     },
     data() {
       return {
@@ -24,10 +24,8 @@
           text:'早上好',
           name:'rose'
         }
-
       }
     },
-
   }
 </script>
 

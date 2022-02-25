@@ -11,7 +11,8 @@
     // 我们可以通过$attrs来访问所有非props的attribute
     inheritAttrs:false,
     name:'message',
-    // props:['name','text'],//数组传递 不能做限制
+    // props:['name','text'],//接收方式一：数组传递(对接收数据不能做限制)
+    // 接收方式二：对象传递(对接收数据能做限制)
     props: {
       // 基础类型检查（null和undefind 会通过任何类型验证）
       message:String,
@@ -50,10 +51,7 @@
           return 'default function'
         }
       }
-
     }
-
-
   }
 </script>
 

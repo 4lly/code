@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    count:{{counter}}
-    <br>
-    <counter-operation @add="add"  @sub="sub" @addN="addN"></counter-operation>
+    <h2>count:{{counter}}</h2>
+    <Child @add="add"  @sub="sub" @addN="addN"></Child>
   </div>
 </template>
 
 <script>
-import CounterOperation from './CounterOperation.vue'
-
+  import Child from './Child.vue'
   export default {
     name:'app',
     components:{
-        CounterOperation
-
+        Child
     },
     data() {
       return {
@@ -21,19 +18,16 @@ import CounterOperation from './CounterOperation.vue'
       }
     },
     methods: {
-      add(num=1) {
+      add() {
         this.counter++;
-
       },
       sub() {
         this.counter--;
-
       },
       addN(num) {
         this.counter+=num;
       }
     },
-
   }
 </script>
 
